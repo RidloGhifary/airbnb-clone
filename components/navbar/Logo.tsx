@@ -12,6 +12,7 @@ export default function Logo() {
       className="hidden cursor-pointer md:block"
       height={100}
       width={100}
+      priority
       src="/images/text_logo.png"
     />
   );
