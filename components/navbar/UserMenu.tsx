@@ -23,7 +23,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
   }, [isOpen]);
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-1 items-center justify-end">
       <div className="flex flex-row items-center gap-3">
         <div
           onClick={() => {}}
@@ -37,7 +37,7 @@ export default function UserMenu({ currentUser }: UserMenuProps) {
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar />
+            <Avatar avatar={currentUser?.image} />
           </div>
         </div>
       </div>

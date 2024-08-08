@@ -7,13 +7,15 @@ export default function Logo() {
   const router = useRouter();
 
   return (
-    <Image
-      alt="logo"
-      className="hidden cursor-pointer md:block"
-      height={100}
-      width={100}
-      priority
-      src="/images/text_logo.png"
-    />
+    <div className="hidden flex-1 cursor-pointer md:block">
+      <Image
+        alt="logo"
+        className="hidden cursor-pointer md:block"
+        height={100}
+        width={100}
+        priority
+        src="/images/text_logo.png"
+      />
+    </div>
   );
 }

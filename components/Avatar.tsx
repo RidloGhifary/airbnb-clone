@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 
-export default function Avatar() {
+interface AvatarProps {
+  avatar?: string | null | undefined;
+}
+
+export default function Avatar({ avatar }: AvatarProps) {
   return (
     <Image
       className="rounded-full"
@@ -10,7 +14,7 @@ export default function Avatar() {
       width={30}
       priority
       alt="avatar"
-      src="/images/placeholder.png"
+      src={avatar || "/images/placeholder.png"}
     />
   );
 }
