@@ -15,6 +15,7 @@ export default function Logo() {
         width={100}
         priority
         src="/images/text_logo.png"
+        onClick={() => router.push("/")}
       />
     </div>
   );
