@@ -36,7 +36,7 @@ export default function ListingInfo({
       <div className="flex flex-col gap-2">
         <div className="flex flex-row items-center gap-2 text-xl font-semibold">
           <div>Hosted by {user?.name}</div>
-          <Avatar src={user?.image as string} />
+          <Avatar avatar={user?.image} />
         </div>
         <div className="flex flex-row items-center gap-4 font-light text-neutral-500">
           <div>{guestCount} guests</div>

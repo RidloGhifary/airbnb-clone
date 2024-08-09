@@ -10,9 +10,11 @@ import { useMemo } from "react";
 
 interface ListingClientProps {
   reservation?: Reservation[];
-  listing: SafeListing & {
-    user: SafeUser;
-  };
+  listing:
+    | (SafeListing & {
+        user: SafeUser;
+      })
+    | any;
   currentUser?: SafeUser | null;
 }
 

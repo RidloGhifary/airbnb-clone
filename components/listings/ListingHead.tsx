@@ -34,10 +34,9 @@ export default function ListingHead({
         <Image
           alt="image"
           src={imageSrc}
-          width={1000}
-          height={1000}
+          fill
           priority
-          className="h-full w-full object-cover"
+          className="w-full object-cover"
         />
         <div className="absolute right-5 top-5">
           <HeartButton listingId={id} currentUser={currentUser} />

@@ -8,11 +8,11 @@ interface IParams {
 }
 
 export default async function ListingPage({ params }: { params: IParams }) {
-  const listing = await getListingById(params || "");
-  const currentUser = getCurrentUser();
+  const listing = await getListingById(params);
+  const currentUser = await getCurrentUser();
 
   if (!listing) {
-    <EmptyState showReset />;
+    <EmptyState showReset title="Invalid listing" subtitle="Try again later" />;
   }
 
   return <ListingClient listing={listing} currentUser={currentUser} />;
