@@ -1,7 +1,7 @@
 "use client";
 
 import useCountries from "@/hooks/useCountries";
-import { SafeUser } from "@/types";
+import { SafeListing, SafeUser } from "@/types";
 import { Reservation } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
@@ -11,7 +11,7 @@ import HeartButton from "../HeartButton";
 import Button from "../Button";
 
 interface ListingCardProps {
-  data: any;
+  data: SafeListing;
   reservation?: Reservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
@@ -66,7 +66,7 @@ export default function ListingCard({
 
   return (
     <div
-      onClick={() => router.push(`/listings/${data.id}?name=${data?.name}`)}
+      onClick={() => router.push(`/listings/${data.id}?name=${data?.title}`)}
       className="group col-span-1 cursor-pointer"
     >
       <div className="flex w-full flex-col gap-2">
