@@ -2,33 +2,34 @@ import EmptyState from "@/components/EmptyState";
 import getCurrentUser from "@/actions/getCurrentUser";
 import getReservations from "@/actions/getReservation";
 import ReservationsClient from "./_components/ReservationsClient";
-import ClientOnly from "@/components/ClientOnly";
 
 export default async function ReservationsPage() {
-  const currentUser = await getCurrentUser();
+  try {
+    const currentUser = await getCurrentUser();
 
-  if (!currentUser) {
-    return (
-      <ClientOnly>
-        <EmptyState title="Unauthorized" subtitle="Please login" />
-      </ClientOnly>
-    );
-  }
+    if (!currentUser) {
+      return <EmptyState title="Unauthorized" subtitle="Please login" />;
+    }
 
-  const reservations = await getReservations({ authorId: currentUser.id });
+    const reservations = await getReservations({ authorId: currentUser.id });
 
-  if (reservations.length === 0) {
-    return (
-      <ClientOnly>
+    if (reservations.length === 0) {
+      return (
         <EmptyState
           title="No reservations found"
           subtitle="Looks like you have no reservations on your properties"
         />
-      </ClientOnly>
-    );
-  }
+      );
+    }
 
-  return (
-    <ReservationsClient reservations={reservations} currentUser={currentUser} />
-  );
+    return (
+      <ReservationsClient
+        reservations={reservations}
+        currentUser={currentUser}
+      />
+    );
+  } catch (error) {
+    console.error("Error occurred while fetching reservations:", error);
+    return <EmptyState title="Error" subtitle="Something went wrong" />;
+  }
 }

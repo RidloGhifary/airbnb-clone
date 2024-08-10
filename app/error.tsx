@@ -4,7 +4,7 @@ import EmptyState from "@/components/EmptyState";
 import { useEffect } from "react";
 
 interface ErrorStateProps {
-  error: Error;
+  error: Error & { digest?: string };
 }
 
 export default function ErrorState({ error }: ErrorStateProps) {
