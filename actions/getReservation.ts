@@ -19,7 +19,7 @@ export default async function getReservation(params: IParams) {
       query.userId = userId;
     }
     if (authorId) {
-      query.authorId = { userId: authorId };
+      query.listing = { userId: authorId };
     }
 
     const reservation = await prisma.reservation.findMany({
