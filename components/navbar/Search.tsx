@@ -45,7 +45,7 @@ export default function Search() {
     }
 
     return "Add Guests";
-  }, []);
+  }, [guestCount]);
 
   return (
     <div

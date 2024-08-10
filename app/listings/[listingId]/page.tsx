@@ -3,6 +3,7 @@ import getListingById from "@/actions/getListingById";
 import EmptyState from "@/components/EmptyState";
 import ListingClient from "./_components/ListingClient";
 import getReservation from "@/actions/getReservation";
+import ClientOnly from "@/components/ClientOnly";
 
 interface IParams {
   listingId?: string;
@@ -14,7 +15,14 @@ export default async function ListingPage({ params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
 
   if (!listing) {
-    <EmptyState showReset title="Invalid listing" subtitle="Try again later" />;
+    <ClientOnly>
+      <EmptyState
+        showReset
+        title="Invalid listing"
+        subtitle="Try again later"
+      />
+      ;
+    </ClientOnly>;
   }
 
   return (
