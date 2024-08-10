@@ -21,22 +21,25 @@ export default function TripsClient({
   const router = useRouter();
   const [deletingId, setDeletingId] = useState("");
 
-  const onCancel = useCallback((id: string) => {
-    setDeletingId(id);
+  const onCancel = useCallback(
+    (id: string) => {
+      setDeletingId(id);
 
-    axios
-      .delete(`/api/reservations/${id}`)
-      .then(() => {
-        toast.success("Reservation cancelled");
-        router.refresh();
-      })
-      .catch((error: any) => {
-        toast.error(error?.response?.data?.error || "Something went wrong");
-      })
-      .finally(() => {
-        setDeletingId("");
-      });
-  }, []);
+      axios
+        .delete(`/api/reservations/${id}`)
+        .then(() => {
+          toast.success("Reservation cancelled");
+          router.refresh();
+        })
+        .catch((error: any) => {
+          toast.error(error?.response?.data?.error || "Something went wrong");
+        })
+        .finally(() => {
+          setDeletingId("");
+        });
+    },
+    [router],
+  );
 
   return (
     <Container>

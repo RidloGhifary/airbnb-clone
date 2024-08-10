@@ -21,22 +21,25 @@ export default function PropertiesClient({
   const router = useRouter();
   const [deletingId, setDeletingId] = useState("");
 
-  const onCancel = useCallback((id: string) => {
-    setDeletingId(id);
+  const onCancel = useCallback(
+    (id: string) => {
+      setDeletingId(id);
 
-    axios
-      .delete(`/api/listings/${id}`)
-      .then(() => {
-        toast.success("Listing deleted");
-        router.refresh();
-      })
-      .catch((error: any) => {
-        toast.error(error?.response?.data?.error || "Something went wrong");
-      })
-      .finally(() => {
-        setDeletingId("");
-      });
-  }, []);
+      axios
+        .delete(`/api/listings/${id}`)
+        .then(() => {
+          toast.success("Listing deleted");
+          router.refresh();
+        })
+        .catch((error: any) => {
+          toast.error(error?.response?.data?.error || "Something went wrong");
+        })
+        .finally(() => {
+          setDeletingId("");
+        });
+    },
+    [router],
+  );
 
   return (
     <Container>
