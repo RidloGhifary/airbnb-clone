@@ -31,12 +31,12 @@ export default function LoginModal() {
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
 
     // TODO: login
     signIn("credentials", { ...data, redirect: false })
-      .then((callback) => {
+      .then((callback: any) => {
         setIsLoading(false);
 
         if (callback?.ok) {
@@ -49,8 +49,11 @@ export default function LoginModal() {
           toast.error(callback.error);
         }
       })
-      .catch((error) => {
+      .catch((error: any) => {
         toast.error(error?.message || "Something went wrong");
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
