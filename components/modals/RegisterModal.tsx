@@ -43,7 +43,6 @@ export default function RegisterModal() {
         toast.success("Account created");
       })
       .catch((error) => {
-        console.log(error);
         toast.error(error?.message || "Something went wrong");
       })
       .finally(() => {

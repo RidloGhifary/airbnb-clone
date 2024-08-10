@@ -51,7 +51,6 @@ export default function LoginModal() {
       })
       .catch((error) => {
         toast.error(error?.message || "Something went wrong");
-        console.log(error);
       });
   };
 
