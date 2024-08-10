@@ -1,0 +1,22 @@
+User-agent: *
+Disallow: /_next/
+Disallow: /.next/
+Disallow: /api/
+Disallow: /private/
+Disallow: /auth/
+Disallow: /account/
+Disallow: /search/
+Disallow: /trips/
+Disallow: /favourites/
+Disallow: /reservations/
+Disallow: /properties/
+Disallow: /register/
+Disallow: /login/
+Disallow: /rent/
+Disallow: /search/
+Disallow: /search/result
+Disallow: /search/result/*
+Disallow: /search/*
+Disallow: /search
+
+Sitemap: https://acme.com/sitemap.xml
